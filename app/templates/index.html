@@ -6,6 +6,11 @@
 		<h1> Welcome to DVR!</h1>
 		Today is {{date.0}}
 	<form action="/" method="post">
+	<p><select name="cam">
+		{% for i in cam_name%}
+		<option value={{ loop.index }}>{{ i }}
+		{% endfor %}
+	</select>
 	<p><select name="date">
 		<option selected value="0">{{date.0}}</option>
 		<option value="1">{{date.1}}</option>
