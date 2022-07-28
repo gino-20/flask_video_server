@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>Playback screen</title>
+</head>
+
+<div class="container">
+  <h2>Table</h2>
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Time</th>
+        <th>Record</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for i in filename%}
+<tr>
+        <td>{{ loop.index }}</td>
+        <td>{{times[loop.index]}}</td>
+        <td>
+	<video width="320" height="240" controls="controls" preload="preload">
+	<source src={{ i }} type="video/mp4"></source>
+	</video>
+	</td>
+</tr>
+{% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+</body>
+</html>
