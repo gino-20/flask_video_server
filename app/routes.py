@@ -6,7 +6,6 @@ from flask import request, url_for
 import os
 
 @app.route('/')
-#@app.route('/index')
 def index():
     now = datetime.now()
     cam_name = []
