@@ -29,22 +29,22 @@ def login_post():
 def signup():
     return render_template('signup.html')
 
-@auth.route('/signup', methods=['POST'])
-def signup_post():
-    email = request.form.get('email')
-    name = request.form.get('name')
-    password = request.form.get('password')
+#@auth.route('/signup', methods=['POST'])
+#def signup_post():
+#    email = request.form.get('email')
+#    name = request.form.get('name')
+#    password = request.form.get('password')
 
-    user = User.query.filter_by(email=email).first() #if this get a user, this means user already registered and must be redirected to the login page
-    if user:
-        flash('User already registered!')
-        return redirect(url_for('auth.signup'))
+#    user = User.query.filter_by(email=email).first() #if this get a user, this means user already registered and must be redirected to the login page
+#    if user:
+#        flash('User already registered!')
+#        return redirect(url_for('auth.signup'))
     # if we reached here, it's time to add the user to the DB
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
-    db.session.add(new_user)
-    db.session.commit()
+#    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+#    db.session.add(new_user)
+#    db.session.commit()
     
-    return redirect(url_for('auth.login'))
+#    return redirect(url_for('auth.login'))
 
 @auth.route('/logout')
 @login_required
