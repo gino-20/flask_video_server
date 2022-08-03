@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Welcome to the home DVR system, {{ name }}!
+</h1>
+<h2>
+  Today is {{date.0}}
+</h2>
+<form action="/profile" method="POST">
+        <p><select name="cam">
+                {% for i in cam_name%}
+                <option value={{ loop.index }}>{{ i }}
+                {% endfor %}
+        </select>
+        <p><select name="date">
+                <option selected value="0">{{date.0}}</option>
+                <option value="1">{{date.1}}</option>
+                <option value="2">{{date.2}}</option>
+                <option value="3">{{date.3}}</option>
+                <option value="4">{{date.4}}</option>
+                <option value="5">{{date.5}}</option>
+                <option value="6">{{date.6}}</option>
+        </select>
+        <input type="submit" value="Open"></p>
+</form>
+
+{% endblock %}
